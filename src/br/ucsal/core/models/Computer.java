@@ -2,8 +2,8 @@ package br.ucsal.core.models;
 
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.List;
 
+import br.ucsal.core.exceptions.*;
 import br.ucsal.core.interfaces.IComputer;
 
 public class Computer implements IComputer{
@@ -18,6 +18,10 @@ public class Computer implements IComputer{
 
     // Constructors 
 
+    public Computer(String code, String ip){
+        this(code, null, null, null, null, ip);
+    }
+
     public Computer(String code, String model, String cpu, String memory, String hd, String ip){
         this.code = code;
         this.model = model;
@@ -27,14 +31,10 @@ public class Computer implements IComputer{
         this.ip = ip;
     }
 
-    // Getter & Setters
+    // Getter
 
     public String getCode(){
         return this.code;
-    }
-
-    public String getModel(){
-        return this.model;
     }
 
     public String getIp(){
@@ -49,16 +49,20 @@ public class Computer implements IComputer{
     }
 
     @Override
-    public void install(Software sw){
+    public void install(Software sw) throws AlreadyExistsException{
         if(!this.softwares.containsKey(sw.getName())){
             this.softwares.put(sw.getName(), sw);
+        }else{
+            throw new AlreadyExistsException(String.format("O software '%s' já se encontra instalado.", sw.getName()));
         }
     }
 
     @Override
-    public void uninstall(String swName){
+    public void uninstall(String swName) throws NotFoundException{
         if(this.softwares.containsKey(swName)){
             this.softwares.remove(swName);
+        }else{
+            throw new NotFoundException(String.format("O software '%s' não está instalado.", swName));
         }
     }
 
