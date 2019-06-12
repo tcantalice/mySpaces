@@ -1,4 +1,4 @@
-package br.ucsal.core;
+package br.ucsal.core.models;
 
 public class Software {
     private String name;
