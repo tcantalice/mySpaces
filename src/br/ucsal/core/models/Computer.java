@@ -41,11 +41,15 @@ public class Computer implements IComputer{
         return this.ip;
     }
 
+    public String infos(){
+        return null;
+    }
+
     // Interfaces Methods
 
     @Override
     public Software[] installedSoftwares(){
-        return (Software[])this.softwares.values().toArray();
+        return this.softwares.values().toArray(new Software[0]);
     }
 
     @Override

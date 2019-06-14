@@ -4,6 +4,7 @@ public class Notify {
 
     private static final String ICON_WARNING = "/!\\";
     private static final String ICON_ERROR = "(X)";
+    private static final String ICON_SUCCESS = "( OK )";
 
     private static Notify instance;
 
@@ -13,6 +14,14 @@ public class Notify {
         if(instance == null)
             instance = new Notify();
         return instance;
+    }
+
+    public void plainMessage(String msg){
+        this.drawNotifier(msg, "");
+    }
+
+    public void successMessage(String msg){
+        this.drawNotifier(msg, ICON_SUCCESS);
     }
 
     public void warningMessage(Exception e){
@@ -48,5 +57,7 @@ public class Notify {
         }
         return line.toString();
     }
+
+
 
 }

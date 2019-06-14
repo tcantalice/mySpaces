@@ -32,7 +32,7 @@ public abstract class View {
      */
     public void show(){
         this.inExec = true;
-        System.out.println(String.format("# %s #", this.title));
+        System.out.println(String.format("\n# %s #", this.title));
     }
 
     /**
@@ -61,14 +61,16 @@ public abstract class View {
     protected abstract void controllerMenu(int option) throws InvalidOptionException;
 
     public int inputOption(){
-        int response = Integer.parseInt(inputData(null));
-        return response;
+        return inputOption(null);
+    }
+
+    public int inputOption(String msg){
+        return Integer.parseInt(inputData(msg));
     }
 
     public String inputData(String msg){
         inputMarkMessage(DEFAULT_MARKER, msg);
-        String data = keyboard.nextLine();
-        return data;
+        return keyboard.nextLine();
     }
 
     protected void inputMarkMessage(String marker, String msg){

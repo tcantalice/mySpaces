@@ -53,6 +53,6 @@ public class ManagerLabs implements IManagerSpaces<Laboratory>{
 
     @Override
     public Laboratory[] avaiableSpaces(){
-        return (Laboratory[])this.laboratories.values().toArray();
+        return this.laboratories.values().toArray(new Laboratory[0]);
     }
 }

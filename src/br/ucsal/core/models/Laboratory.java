@@ -29,7 +29,7 @@ public class Laboratory implements ILaboratory{
     // Interfaces Methods
     @Override
     public Computer[] avaiableComputers(){
-        return (Computer[])this.computers.values().toArray();
+        return this.computers.values().toArray(new Computer[0]);
     }
 
     @Override
@@ -57,6 +57,10 @@ public class Laboratory implements ILaboratory{
             return this.computers.get(pcCode);
         }
         throw new NotFoundException(String.format("%s não encontrado no laboratório %s", pcCode, this.initial));
+    }
+
+    public String toString(){
+        return String.format("%s : %s", this.initial, this.name);
     }
 
 }
