@@ -4,6 +4,9 @@ import br.ucsal.cli.commons.Notify;
 import br.ucsal.cli.exceptions.InvalidOptionException;
 
 public class MainView extends View {
+
+
+
     public MainView() {
         super("Menu Principal");
     }
@@ -28,6 +31,7 @@ public class MainView extends View {
                 this.inExec = false;
                 break;
             case 1:
+                LaboratoriesView.getInstance().show();
                 break;
             case 2:
                 break;

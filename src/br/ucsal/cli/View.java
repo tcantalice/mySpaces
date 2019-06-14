@@ -61,14 +61,14 @@ public abstract class View {
     protected abstract void controllerMenu(int option) throws InvalidOptionException;
 
     public int inputOption(){
-        inputMarkMessage(DEFAULT_MARKER, null);
-        int response = keyboard.nextInt();
+        int response = Integer.parseInt(inputData(null));
         return response;
     }
 
     public String inputData(String msg){
         inputMarkMessage(DEFAULT_MARKER, msg);
-        return keyboard.nextLine();
+        String data = keyboard.nextLine();
+        return data;
     }
 
     protected void inputMarkMessage(String marker, String msg){

@@ -35,7 +35,7 @@ public class Notify {
     // Base show notify
 
     private void drawNotifier(String msg, String icon){
-        int lineSize = msg.length() + 3 + icon.length();
+        int lineSize = msg.length() + 5 + icon.length();
         System.out.println(drawLine(lineSize));
         System.out.println(String.format("| %s %s |", icon, msg));
         System.out.println(drawLine(lineSize));
