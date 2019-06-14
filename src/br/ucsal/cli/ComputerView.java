@@ -4,11 +4,11 @@ import br.ucsal.cli.commons.Notify;
 import br.ucsal.cli.exceptions.InvalidOptionException;
 import br.ucsal.core.models.Computer;
 
-public class SoftwaresView extends View {
+public class ComputerView extends View {
 
     private Computer current;
 
-    public SoftwaresView(Computer computer){
+    public ComputerView(Computer computer){
         super(String.format("%s (IP: %s)", computer.getCode(), computer.getIp()));
         this.current = computer;
     }

@@ -6,11 +6,11 @@ import br.ucsal.core.models.Computer;
 import br.ucsal.cli.exceptions.InvalidOptionException;
 import br.ucsal.cli.commons.Notify;
 
-public class ComputersView extends View {
+public class LaboratoryView extends View {
 
     private Laboratory current;
 
-    public ComputersView(Laboratory laboratory){
+    public LaboratoryView(Laboratory laboratory){
         super(String.format("%s (%s)", laboratory.getInitial(), laboratory.getName()));
         this.current = laboratory;
     }
@@ -105,7 +105,7 @@ public class ComputersView extends View {
         View cView;
         String code = inputData("Código do computador");
         try {
-            cView = new SoftwaresView(data.getComputer(code));
+            cView = new ComputerView(data.getComputer(code));
             cView.show();
         } catch (NotFoundException e) {
             Notify.getInstance().errorMessage(e);

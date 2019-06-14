@@ -8,18 +8,18 @@ import br.ucsal.core.models.Laboratory;
 import br.ucsal.cli.commons.Notify;
 import br.ucsal.cli.exceptions.InvalidOptionException;
 
-public class LaboratoriesView extends View {
+public class ManagerView extends View {
 
 
-    private static LaboratoriesView instance;
+    private static ManagerView instance;
 
-    private LaboratoriesView(){
+    private ManagerView(){
         super("Laboratórios");
     }
 
-    public static LaboratoriesView getInstance(){
+    public static ManagerView getInstance(){
         if(instance == null){
-            instance = new LaboratoriesView();
+            instance = new ManagerView();
         }
         return instance;
     }
@@ -87,7 +87,7 @@ public class LaboratoriesView extends View {
         View cView;
         String code = inputData("Sigla do laboratório");
         try{
-            cView = new ComputersView(data.enterSpace(code));
+            cView = new LaboratoryView(data.enterSpace(code));
             cView.show();
         }catch(NotFoundException e){
             Notify.getInstance().errorMessage(e);

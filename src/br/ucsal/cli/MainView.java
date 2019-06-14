@@ -31,7 +31,7 @@ public class MainView extends View {
                 this.inExec = false;
                 break;
             case 1:
-                LaboratoriesView.getInstance().show();
+                ManagerView.getInstance().show();
                 break;
             case 2:
                 break;
